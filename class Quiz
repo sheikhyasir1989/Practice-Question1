@@ -1,1 +1,26 @@
 
+import 'dart:io';
+
+/// Encodes a given [str] using the Run-length encoding algorithm
+///
+/// The algorithm counts the number of Number in a row and encodes them as a single number
+/// followed by the number of occurrences.
+///
+/// Example:
+///
+///     Input:  "1211145567998"
+///     Output: "11231142516172918"
+void encoding(String str) {
+  int n = str.length;
+  for (int i = 0; i < n; i++) {
+    // Count occurrences of current number
+    int count = 1;
+    while (i < n - 1 && int.codeUnitAt(i) == int.codeUnitAt(i + 1)) {
+      count++;
+      i++;
+    }
+
+    // Print numbers and its count
+    stdout.write('${int[i]}$count');
+  }
+}
